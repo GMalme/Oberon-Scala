@@ -208,6 +208,10 @@ class Interpreter extends OberonVisitorAdapter {
   def setTestEnvironment() = {
     printStream = new PrintStream(new NullPrintStream())
   }
+
+  override def visit(arg: ValueArguments): Expression = ???
+
+  override def visit(arg: ReferenceArguments): Expression = ???
 }
 
 class EvalExpressionVisitor(val interpreter: Interpreter) extends OberonVisitorAdapter {
