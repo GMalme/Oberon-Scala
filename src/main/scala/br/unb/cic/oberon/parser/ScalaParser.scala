@@ -103,7 +103,11 @@ class ParserVisitor {
   def visitFormalArg(ctx: OberonParser.FormalArgContext): List[FormalArg] = {
     val visitor = new FormalArgVisitor()
     ctx.accept(visitor)
+<<<<<<< HEAD
     visitor.formalArg
+=======
+    }
+>>>>>>> ca45d7193ed55fdd2e83c68b0b83042f1fedf585
   }
 
 
