@@ -45,7 +45,7 @@ case class PaigesBasedGenerator(lineSpaces: Int = 2) extends CCodeGenerator {
     }
     val args = procedure.args.map {
       case (arg) =>
-        val argumentType = generateType(arg.argumentType)
+        val argumentType = generateType(arg.Type)
         argumentType + Doc.space + Doc.text(arg.name)
     }
 

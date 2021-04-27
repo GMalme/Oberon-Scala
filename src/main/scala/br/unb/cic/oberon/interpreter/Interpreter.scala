@@ -56,6 +56,8 @@ class Interpreter extends OberonVisitorAdapter {
   override def visit(procedure: Procedure): Unit = {
     env.declareProcedure(procedure)
   }
+  override def visit(referenceArguments: ReferenceArguments): Expression = ???
+  override def visit(valueArguments: FormalArg): Expression = ???
 
   // 	assert(stmts(1) == EAssignmentStmt(ArrayAssignment(VarExpression("array"), IntValue(0)), VarExpression("x")))
 
@@ -236,6 +238,7 @@ class EvalExpressionVisitor(val interpreter: Interpreter) extends OberonVisitorA
       interpreter.env.pop()
       exp
     }
+
   }
 
   def visitFunctionCall(name: String, args: List[Expression]): Expression = {
@@ -244,6 +247,9 @@ class EvalExpressionVisitor(val interpreter: Interpreter) extends OberonVisitorA
     assert(returnValue.isDefined) // a function call must set a local variable with the "return" expression
     returnValue.get
   }
+
+
+
 
   /**
    * Eval a binary expression.
